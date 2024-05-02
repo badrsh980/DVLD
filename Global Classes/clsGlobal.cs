@@ -30,11 +30,10 @@ namespace DVLD.Classes
                 { 
                      File.Delete(filePath);
                     return true;
-
                 }
 
                 // concatonate username and passwrod withe seperator.
-                string dataToSave = Username + "#//#"+Password ;
+                string dataToSave = Username + "#//#" +Password ;
 
                 // Create a StreamWriter to write to the file
                 using (StreamWriter writer = new StreamWriter(filePath))
@@ -76,7 +75,6 @@ namespace DVLD.Classes
                         {
                             Console.WriteLine(line); // Output each line of data to the console
                             string[] result = line.Split(new string[] { "#//#" }, StringSplitOptions.None);
-
                             Username = result[0];
                             Password = result[1];
                         }

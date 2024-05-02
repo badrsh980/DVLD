@@ -14,5 +14,9 @@ namespace DVLD.Tests
             InitializeComponent();
         }
 
+        private void frmListLocalDrivingLicesnseApplications_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

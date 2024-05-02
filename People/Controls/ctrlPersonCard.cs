@@ -49,7 +49,6 @@ namespace DVLD.Controls
                 MessageBox.Show("No Person with National No. = " + NationalNo.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
              _FillPersonInfo();
         }
 

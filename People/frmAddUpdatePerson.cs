@@ -35,7 +35,6 @@ namespace DVLD.People
         public frmAddUpdatePerson(int PersonID)
         {
             InitializeComponent();
-
             _Mode = enMode.Update;
             _PersonID = PersonID;
         }
@@ -310,7 +309,7 @@ namespace DVLD.People
             }
             else
             {
-                //e.Cancel = false;
+                //e.SetCancel = false;
                 errorProvider1.SetError(Temp, null);
             }
 

@@ -1,5 +1,5 @@
 ﻿using DVLD.Applications;
-
+using DVLD.Applications.TestTypes;
 using DVLD.Classes;
 
 using DVLD.Login;
@@ -80,7 +80,8 @@ namespace DVLD
 
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmListTestTypes frm = new frmListTestTypes();
+            frm.ShowDialog();
         }
 
         private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)

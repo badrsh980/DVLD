@@ -136,7 +136,7 @@ namespace DVLD.Controls
             }
             else
             {
-                //e.Cancel = false;
+                //e.SetCancel = false;
                 errorProvider1.SetError(txtFilterValue, null);
             }
         }
@@ -165,10 +165,13 @@ namespace DVLD.Controls
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+            
+
+
             // Check if the pressed key is Enter (character code 13)
             if (e.KeyChar == (char)13)
             {
-
                 btnFind.PerformClick();
             }
             //this will allow only digits if person id is selected
@@ -176,5 +179,17 @@ namespace DVLD.Controls
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+        private void txtFilterValue_Validating_1(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtFilterValue.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtFilterValue, "Title cannot be Description!");
+            }
+            else
+            {
+                errorProvider1.SetError(txtFilterValue, null);
+            };
+        }
     }
 }

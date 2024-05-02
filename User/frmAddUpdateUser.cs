@@ -16,7 +16,6 @@ namespace DVLD.User
         public frmAddUpdateUser()
         {
             InitializeComponent();
-
             _Mode = enMode.AddNew;
         }
 
@@ -69,7 +68,7 @@ namespace DVLD.User
 
             if (_User == null)
             {
-                MessageBox.Show("No User with ID = " + _User, "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No User with ID = " + _UserID, "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
 
                 return;

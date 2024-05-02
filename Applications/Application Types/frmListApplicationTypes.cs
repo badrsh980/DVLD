@@ -31,15 +31,18 @@ namespace DVLD.Applications
             dgvApplicationTypes.DataSource = _dtAllApplicationTypes;
             lblRecordsCount.Text = dgvApplicationTypes.Rows.Count.ToString();
 
-            dgvApplicationTypes.Columns[0].HeaderText = "ID";
-            dgvApplicationTypes.Columns[0].Width = 110;
-         
-            dgvApplicationTypes.Columns[1].HeaderText = "Title";
-            dgvApplicationTypes.Columns[1].Width = 400;
-       
-            dgvApplicationTypes.Columns[2].HeaderText = "Fees";
-            dgvApplicationTypes.Columns[2].Width = 100;
+            if (dgvApplicationTypes.Rows.Count > 0)
+            {
+                dgvApplicationTypes.Columns[0].HeaderText = "ID";
+                dgvApplicationTypes.Columns[0].Width = 110;
+                dgvApplicationTypes.Columns[0].Visible = false; 
 
+                dgvApplicationTypes.Columns[1].HeaderText = "Title";
+                dgvApplicationTypes.Columns[1].Width = 400;
+
+                dgvApplicationTypes.Columns[2].HeaderText = "Fees";
+                dgvApplicationTypes.Columns[2].Width = 100;
+            }
            
         }
 
