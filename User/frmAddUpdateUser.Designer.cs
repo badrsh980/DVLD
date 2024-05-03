@@ -163,7 +163,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.TabIndex = 128;
-            this.label4.Text = "UserID:";
+            this.label4.Text = "CreatedByUserID:";
             // 
             // chkIsActive
             // 

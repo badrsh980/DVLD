@@ -36,11 +36,16 @@ namespace DVLD.Applications
             //this will initialize the reset the defaule values
             if (_Mode == enMode.AddNew)
             {
-                lblTitle.Text = "Add New Local Driving License Application";
-                this.Text = "Add New Local Driving License Application";
+                lblTitle.Text = "New Local Driving License Application";
+                this.Text = "New Local Driving License Application";
                 ctrlPersonCardWithFilter1.FilterFocus();
-                btnSave.Enabled = true;
+                cbLicenseClass.SelectedIndex = 2;
 
+                lblFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.NewLocalDrivingLicenseService).Fees.ToString();
+                lblApplicationDate.Text = DateTime.Now.ToShortDateString();
+                lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
+
+                btnSave.Enabled = true;
             }
             else
             {
@@ -65,7 +70,7 @@ namespace DVLD.Applications
             ctrlPersonCardWithFilter1.LoadPersonInfo(clsLocalDrivingApplication.ApplicantPersonID);
             lblLocalDrivingLicebseApplicationID.Text= clsLocalDrivingApplication.LocalDrivingLicenseApplicationID.ToString();
             lblApplicationDate.Text = clsLocalDrivingApplication.ApplicationDate.ToString();
-            cbLicenseClass.SelectedText= clsLocalDrivingApplication.LicenseClass.ClassName; 
+            cbLicenseClass.SelectedText = cbLicenseClass.FindString(clsLicenseClass.Find((clsLocalDrivingApplication.LicenseClassID)).ClassName).ToString();
             lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
             lblFees.Text= clsApplicationType.Find((int)clsApplication.enApplicationType.NewLocalDrivingLicenseService).Fees.ToString();
             
@@ -87,8 +92,8 @@ namespace DVLD.Applications
 
         private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
         {
-            _ResetDefualtValues();
             _FillCompoBox();
+            _ResetDefualtValues();
 
             if (_Mode == enMode.Update)
             {
@@ -99,23 +104,19 @@ namespace DVLD.Applications
 
         }
 
-
-
-
-
-
-
         private void btnSave_Click(object sender, EventArgs e)
         {
 
             clsLocalDrivingApplication.ApplicantPersonID = ctrlPersonCardWithFilter1.PersonID;
             clsLocalDrivingApplication.ApplicationDate = DateTime.Now;
-            clsLocalDrivingApplication.ApplicationTypeID = clsApplication.enApplicationType.NewLocalDrivingLicenseService;
-            clsLocalDrivingApplication.ApplicationStatus = clsLocalDrivingApplication.enStatus.New;
+            clsLocalDrivingApplication.ApplicationTypeID = 1;
+
+            clsLocalDrivingApplication.ApplicationStatus = clsApplication.enStatus.New;
             clsLocalDrivingApplication.LastStatusDate = DateTime.Now;
-            clsLocalDrivingApplication.PaidFees = clsApplicationType.Find((int)clsApplication.enApplicationType.NewLocalDrivingLicenseService).Fees;
-            clsLocalDrivingApplication.UserID = clsGlobal.CurrentUser.UserID;
-            clsLocalDrivingApplication.LicenseClassID = (int)clsLicenseClass.Find(cbLicenseClass.Text).LicenseClassID;
+            clsLocalDrivingApplication.PaidFees = Convert.ToSingle(lblFees.Text);
+
+            clsLocalDrivingApplication.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+            clsLocalDrivingApplication.LicenseClassID = clsLicenseClass.Find(cbLicenseClass.Text).LicenseClassID;
 
 
 
@@ -126,6 +127,7 @@ namespace DVLD.Applications
                 lblLocalDrivingLicebseApplicationID.Text = clsLocalDrivingApplication.LocalDrivingLicenseApplicationID.ToString();
                 //change form mode to update.
                 _Mode = enMode.Update;
+
                 lblTitle.Text = "Update Local Driving License Application";
                 this.Text = "Update Local Driving License Application";
 
@@ -133,6 +135,9 @@ namespace DVLD.Applications
             }
             else
                 MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

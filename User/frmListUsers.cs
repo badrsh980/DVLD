@@ -109,7 +109,7 @@ namespace DVLD.User
             switch (cbFilterBy.Text)
             {
                 case "User ID":
-                    FilterColumn = "UserID";
+                    FilterColumn = "CreatedByUserID";
                     break;
                 case "UserName":
                     FilterColumn = "UserName";

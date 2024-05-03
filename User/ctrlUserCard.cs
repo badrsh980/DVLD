@@ -34,7 +34,7 @@ namespace DVLD.Controls
             if (_User == null)
             {
                 _ResetPersonInfo();
-                MessageBox.Show("No User with UserID = " + UserID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No User with CreatedByUserID = " + UserID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
                 _FillUserInfo();
