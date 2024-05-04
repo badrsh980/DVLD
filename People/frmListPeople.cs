@@ -180,7 +180,6 @@ namespace DVLD.People
            
             Form frm = new frmAddUpdatePerson((int)dgvPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
-
             _RefreshPeoplList();
 
         }
