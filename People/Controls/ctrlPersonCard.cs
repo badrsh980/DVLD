@@ -36,7 +36,6 @@ namespace DVLD.Controls
                 MessageBox.Show("No Person with PersonID = " + PersonID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-           
                 _FillPersonInfo();
         }
 
@@ -102,7 +101,6 @@ namespace DVLD.Controls
             lblCountry.Text = "[????]";
             lblAddress.Text = "[????]";
             pbPersonImage.Image = Resources.Male_512;
-        
         }
 
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

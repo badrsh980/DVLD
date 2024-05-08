@@ -1,4 +1,6 @@
 ﻿using DVLD.Applications;
+using DVLD.Applications.Local_Driving_License;
+using DVLD.Controls;
 using DVLD_Buisness;
 using System;
 using System.Data;
@@ -126,13 +128,17 @@ namespace DVLD.Tests
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmLocalDraivingLicenseApplicationInfo frm = new frmLocalDraivingLicenseApplicationInfo((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _RefreshPeoplList();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+            _RefreshPeoplList();
+
         }
 
         private void DeleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -184,7 +190,11 @@ namespace DVLD.Tests
         {
             frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication();
             frm.ShowDialog();
-            frmListLocalDrivingLicesnseApplications_Load(null, null);
+            _RefreshPeoplList();
+        }
+
+        private void frmListLocalDrivingLicesnseApplications_Activated(object sender, EventArgs e)
+        {
         }
     }
 }

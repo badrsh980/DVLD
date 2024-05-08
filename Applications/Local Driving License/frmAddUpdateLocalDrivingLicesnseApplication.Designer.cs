@@ -106,6 +106,7 @@
             this.btnApplicationInfoNext.TabIndex = 119;
             this.btnApplicationInfoNext.Text = "Next";
             this.btnApplicationInfoNext.UseVisualStyleBackColor = true;
+            this.btnApplicationInfoNext.Click += new System.EventHandler(this.btnApplicationInfoNext_Click);
             // 
             // ctrlPersonCardWithFilter1
             // 
@@ -120,6 +121,7 @@
             this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(837, 405);
             this.ctrlPersonCardWithFilter1.TabIndex = 123;
             this.ctrlPersonCardWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonCardWithFilter1_OnPersonSelected);
+            this.ctrlPersonCardWithFilter1.Load += new System.EventHandler(this.ctrlPersonCardWithFilter1_Load);
             // 
             // tpApplicationInfo
             // 
@@ -358,6 +360,7 @@
             this.Name = "frmAddUpdateLocalDrivingLicesnseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAddUpdateApplication";
+            this.Activated += new System.EventHandler(this.frmAddUpdateLocalDrivingLicesnseApplication_Activated);
             this.Load += new System.EventHandler(this.frmAddUpdateLocalDrivingLicesnseApplication_Load);
             this.tcApplicationInfo.ResumeLayout(false);
             this.tpPersonalInfo.ResumeLayout(false);
