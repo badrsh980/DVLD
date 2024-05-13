@@ -84,6 +84,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox8);
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox3);
             this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(901, 523);
             this.splitContainer1.SplitterDistance = 417;
             this.splitContainer1.SplitterWidth = 6;

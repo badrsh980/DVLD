@@ -359,6 +359,11 @@ namespace DVLD.People
                 errorProvider1.SetError(txtNationalNo, null);
             }
         }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

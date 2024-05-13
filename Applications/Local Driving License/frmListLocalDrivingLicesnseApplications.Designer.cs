@@ -71,7 +71,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTitle.Location = new System.Drawing.Point(399, 208);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(582, 39);
+            this.lblTitle.Size = new System.Drawing.Size(552, 39);
             this.lblTitle.TabIndex = 123;
             this.lblTitle.Text = "Local Driving License Applications";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

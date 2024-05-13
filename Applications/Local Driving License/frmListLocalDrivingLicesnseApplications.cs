@@ -88,16 +88,16 @@ namespace DVLD.Tests
                     break;
 
             }
-            if(txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
+            if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
             {
                 _dtAllDrivingApplication.DefaultView.RowFilter = "";
-                lblRecordsCount.Text=dgvLocalDrivingLicenseApplications.RowCount.ToString();
+                lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.RowCount.ToString();
                 return;
             }
 
-            if (FilterColumn== "LocalDrivingLicenseApplicationID")
+            if (FilterColumn == "LocalDrivingLicenseApplicationID")
             {
-                _dtAllDrivingApplication.DefaultView.RowFilter = string.Format("[{0}]={1}", FilterColumn,txtFilterValue.Text.Trim());
+                _dtAllDrivingApplication.DefaultView.RowFilter = string.Format("[{0}]={1}", FilterColumn, txtFilterValue.Text.Trim());
 
 
             }
@@ -106,7 +106,7 @@ namespace DVLD.Tests
                 _dtAllDrivingApplication.DefaultView.RowFilter = string.Format("[{0}]Like'{1}%'", FilterColumn, txtFilterValue.Text.Trim());
 
             }
-            lblRecordsCount.Text=dgvLocalDrivingLicenseApplications.RowCount.ToString() ;
+            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.RowCount.ToString();
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,7 +145,7 @@ namespace DVLD.Tests
         {
             if (MessageBox.Show("Are you sure you want to delete Person [" + dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                clsLocalDrivingApplication LocalDrivingApplication= clsLocalDrivingApplication.FindByLocalDrivingLicenseApplicationID((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+                clsLocalDrivingApplication LocalDrivingApplication = clsLocalDrivingApplication.FindByLocalDrivingLicenseApplicationID((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
                 //Perform Delele and refresh
                 if (LocalDrivingApplication != null)
                 {
@@ -163,6 +163,24 @@ namespace DVLD.Tests
 
         private void CancelApplicaitonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Are you sure you want to Cancel Local Driving Application [" + dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value + "]", "Confirm Cancel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                clsLocalDrivingApplication LocalDrivingApplication = clsLocalDrivingApplication.FindByLocalDrivingLicenseApplicationID((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+                //Perform Delele and refresh
+                if (LocalDrivingApplication != null)
+                {
+                    if (LocalDrivingApplication.SetCancel())
+                    {
+                        MessageBox.Show("Application Cancel Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _RefreshPeoplList();
+                    }
+
+                    else
+                        MessageBox.Show("Person was not Cancel.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
 
         }
 
