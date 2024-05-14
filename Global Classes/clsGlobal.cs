@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DVLD_Buisness;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DVLD_Buisness;
 
 
 namespace DVLD.Classes
@@ -21,7 +17,7 @@ namespace DVLD.Classes
                 //this will get the current project directory folder.
                 string currentDirectory = System.IO.Directory.GetCurrentDirectory();
 
-
+                
                 // Define the path to the text file where you want to save the data
                 string filePath = currentDirectory + "\\data.txt";
 
