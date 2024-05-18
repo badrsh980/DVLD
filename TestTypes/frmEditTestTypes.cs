@@ -8,7 +8,7 @@ namespace DVLD.Applications.TestTypes
 {
     public partial class frmEditTestTypes : Form
     {
-        private clsTestType.TestType ID;
+        private clsTestType.enTestType ID;
 
         private clsTestType Test;
 
@@ -18,7 +18,7 @@ namespace DVLD.Applications.TestTypes
         public frmEditTestTypes(int ID)
         {
             InitializeComponent();
-            this.ID = (clsTestType.TestType)ID;
+            this.ID = (clsTestType.enTestType)ID;
         }
 
 

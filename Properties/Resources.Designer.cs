@@ -1035,7 +1035,7 @@ namespace DVLD.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap TestType_32 {
             get {
-                object obj = ResourceManager.GetObject("TestType 32", resourceCulture);
+                object obj = ResourceManager.GetObject("enTestType 32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1045,7 +1045,7 @@ namespace DVLD.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap TestType_512 {
             get {
-                object obj = ResourceManager.GetObject("TestType 512", resourceCulture);
+                object obj = ResourceManager.GetObject("enTestType 512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -29,7 +29,6 @@ namespace DVLD.People
         {
             InitializeComponent();
             _Mode = enMode.AddNew;
-
         }
 
         public frmAddUpdatePerson(int PersonID)
@@ -142,7 +141,6 @@ namespace DVLD.People
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
             _ResetDefualtValues();
-
             if (_Mode == enMode.Update)
                 _LoadData();
         }
@@ -160,7 +158,6 @@ namespace DVLD.People
                 if (_Person.ImagePath != "")
                 {
                     //first we delete the old image from the folder in case there is any.
-
                     try
                     {
                         File.Delete(_Person.ImagePath);
@@ -361,6 +358,11 @@ namespace DVLD.People
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbPersonImage_Click(object sender, EventArgs e)
         {
 
         }

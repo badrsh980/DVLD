@@ -531,6 +531,7 @@
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPersonImage.TabIndex = 85;
             this.pbPersonImage.TabStop = false;
+            this.pbPersonImage.Click += new System.EventHandler(this.pbPersonImage_Click);
             // 
             // btnSave
             // 
