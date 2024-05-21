@@ -1,6 +1,7 @@
 ﻿using DVLD.Applications;
 using DVLD.Applications.Local_Driving_License;
 using DVLD.Controls;
+using DVLD.Test;
 using DVLD_Buisness;
 using System;
 using System.Data;
@@ -78,7 +79,7 @@ namespace DVLD.Tests
                     FilterColumn = "ClassName";
                     break;
                 case "Full Name":
-                    FilterColumn = "FullName";
+                    FilterColumn = "PersonFullName";
                     break;
                 case "Status":
                     FilterColumn = "Status";
@@ -213,6 +214,27 @@ namespace DVLD.Tests
 
         private void frmListLocalDrivingLicesnseApplications_Activated(object sender, EventArgs e)
         {
+        }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmTestAppointments frm = new frmTestAppointments((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value,clsTestType.enTestType.VisionTest);
+            frm.ShowDialog();
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmTestAppointments frm = new frmTestAppointments((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value, clsTestType.enTestType.WrittenTest);
+            frm.ShowDialog();
+        }
+
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmTestAppointments frm = new frmTestAppointments((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value, clsTestType.enTestType.PracticalTest);
+            frm.ShowDialog();
         }
     }
 }

@@ -121,7 +121,7 @@ namespace DVLD.User
 
         
                 case "Full Name":
-                    FilterColumn = "FullName";
+                    FilterColumn = "PersonFullName";
                     break;
 
                 default:
@@ -139,7 +139,7 @@ namespace DVLD.User
             }
 
 
-            if (FilterColumn != "FullName" && FilterColumn != "UserName")
+            if (FilterColumn != "PersonFullName" && FilterColumn != "UserName")
                 //in this case we deal with numbers not string.
                 _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
             else

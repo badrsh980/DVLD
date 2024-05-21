@@ -58,7 +58,7 @@ namespace DVLD.Applications.Local_Driving_License.Controls
 
             AppliedForLicense.Text = _LocalDrivingApplication.LicenseClassInfo.ClassName;
 
-             lblApplicantName.Text = _LocalDrivingApplication.FullName;
+             lblApplicantName.Text = _LocalDrivingApplication.PersonFullName;
              lblCreatedBy.Text = _LocalDrivingApplication.CreatedByUserInfo.UserName;
              lblType.Text = _LocalDrivingApplication.ApplicationTypeInfo.Title;
         }

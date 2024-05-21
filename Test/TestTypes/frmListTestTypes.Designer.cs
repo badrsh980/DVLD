@@ -76,7 +76,7 @@
             this.label2.TabIndex = 114;
             this.label2.Text = "# Records:";
             // 
-            // dgvTestTypes
+            // dgvLicenseTestAppointments
             // 
             this.dgvTestTypes.AllowUserToAddRows = false;
             this.dgvTestTypes.AllowUserToDeleteRows = false;
@@ -88,7 +88,7 @@
             this.dgvTestTypes.Location = new System.Drawing.Point(13, 265);
             this.dgvTestTypes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTestTypes.MultiSelect = false;
-            this.dgvTestTypes.Name = "dgvTestTypes";
+            this.dgvTestTypes.Name = "dgvLicenseTestAppointments";
             this.dgvTestTypes.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
