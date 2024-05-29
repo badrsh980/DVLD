@@ -1,10 +1,10 @@
 ﻿using DVLD.Applications;
 using DVLD.Applications.Local_Driving_License;
-using DVLD.Controls;
 using DVLD.Test;
 using DVLD_Buisness;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace DVLD.Tests
@@ -57,6 +57,7 @@ namespace DVLD.Tests
 
                 dgvLocalDrivingLicenseApplications.Columns[6].HeaderText = "Status";
                 dgvLocalDrivingLicenseApplications.Columns[6].Width = 150;
+                dgvLocalDrivingLicenseApplications.CellFormatting += new DataGridViewCellFormattingEventHandler(dgvLocalDrivingLicenseApplications_CellFormatting);
 
             }
 
@@ -79,7 +80,7 @@ namespace DVLD.Tests
                     FilterColumn = "ClassName";
                     break;
                 case "Full Name":
-                    FilterColumn = "PersonFullName";
+                    FilterColumn = "FullName";
                     break;
                 case "Status":
                     FilterColumn = "Status";
@@ -185,14 +186,12 @@ namespace DVLD.Tests
 
         }
 
-        private void ScheduleTestsMenue_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            issueDriverLicenseForTheFirstTime frm = new issueDriverLicenseForTheFirstTime((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
 
+            frm.ShowDialog();
         }
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -219,8 +218,10 @@ namespace DVLD.Tests
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            frmTestAppointments frm = new frmTestAppointments((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value,clsTestType.enTestType.VisionTest);
+            frmTestAppointments frm = new frmTestAppointments((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value, clsTestType.enTestType.VisionTest);
             frm.ShowDialog();
+            _RefreshPeoplList();
+
         }
 
         private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
@@ -228,6 +229,8 @@ namespace DVLD.Tests
 
             frmTestAppointments frm = new frmTestAppointments((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value, clsTestType.enTestType.WrittenTest);
             frm.ShowDialog();
+            _RefreshPeoplList();
+
         }
 
         private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
@@ -235,6 +238,90 @@ namespace DVLD.Tests
 
             frmTestAppointments frm = new frmTestAppointments((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value, clsTestType.enTestType.PracticalTest);
             frm.ShowDialog();
+            _RefreshPeoplList();
+
+        }
+
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cmsApplications_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            int numberOfPassTests = clsLocalDrivingApplication.PassedTestCounts((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            clsLocalDrivingApplication LocalDrivingLicenseApplication = clsLocalDrivingApplication.FindByLocalDrivingLicenseApplicationID((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+
+
+            int TotalPassedTests = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[5].Value;
+
+            bool LicenseExists = LocalDrivingLicenseApplication.IsLicenseIssued();
+
+            //Enabled only if person passed all tests and Does not have license. 
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExists;
+
+            showLicenseToolStripMenuItem.Enabled = LicenseExists;
+
+            editToolStripMenuItem.Enabled = !LicenseExists && (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enStatus.New);
+            ScheduleTestsMenue.Enabled = !LicenseExists;
+
+            //Enable/Disable Cancel Menue Item
+            //We only canel the applications with status=new.
+            CancelApplicaitonToolStripMenuItem.Enabled = (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enStatus.New);
+
+            //Enable/Disable Delete Menue Item
+            //We only allow delete incase the application status is new not complete or Cancelled.
+            DeleteApplicationToolStripMenuItem.Enabled = (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enStatus.New);
+
+
+
+            //Enable Disable Schedule menue and it's sub menue
+            bool PassedVisionTest = LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.VisionTest); ;
+            bool PassedWrittenTest = LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.WrittenTest);
+            bool PassedStreetTest = LocalDrivingLicenseApplication.DoesPassTestType(clsTestType.enTestType.PracticalTest);
+
+            ScheduleTestsMenue.Enabled = (!PassedVisionTest || !PassedWrittenTest || !PassedStreetTest) && (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enStatus.New);
+
+            if (ScheduleTestsMenue.Enabled == true)
+            {
+                //To Allow Schdule vision test, Person must not passed the same test before.
+                scheduleVisionTestToolStripMenuItem.Enabled = !PassedVisionTest;
+
+                //To Allow Schdule written test, Person must pass the vision test and must not passed the same test before.
+                scheduleWrittenTestToolStripMenuItem.Enabled = PassedVisionTest && !PassedWrittenTest;
+
+                //To Allow Schdule steet test, Person must pass the vision * written tests, and must not passed the same test before.
+                scheduleStreetTestToolStripMenuItem.Enabled = PassedVisionTest && PassedWrittenTest && !PassedStreetTest;
+
+            }
+
+
+        }
+
+        private void dgvLocalDrivingLicenseApplications_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 6)
+            {
+                if (e.Value != null)
+                {
+                    string cellValue = e.Value.ToString();
+
+                    // Change color based on the value
+                    if (cellValue == "Completed")
+                    {
+                        e.CellStyle.ForeColor = Color.Green; // Text color
+                    }
+                    else if (cellValue == "Cancelled")
+                    {
+                        e.CellStyle.ForeColor = Color.Red; // Text color
+                    }
+                    else if (cellValue == "New")
+                    {
+                        e.CellStyle.ForeColor = Color.Gray; // Text color
+                    }
+                }
+            }
         }
     }
 }

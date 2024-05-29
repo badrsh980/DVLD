@@ -61,6 +61,8 @@ namespace DVLD.Applications.Local_Driving_License.Controls
              lblApplicantName.Text = _LocalDrivingApplication.PersonFullName;
              lblCreatedBy.Text = _LocalDrivingApplication.CreatedByUserInfo.UserName;
              lblType.Text = _LocalDrivingApplication.ApplicationTypeInfo.Title;
+             llblShowLicenseInfo.Enabled = _LocalDrivingApplication.IsLicenseIssued();
+
         }
 
         public ctrlLocalDraivingLicenseApplicationInfo()
@@ -81,7 +83,6 @@ namespace DVLD.Applications.Local_Driving_License.Controls
 
         private void llblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

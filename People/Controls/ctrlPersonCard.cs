@@ -54,9 +54,17 @@ namespace DVLD.Controls
         private void _LoadPersonImage()
         {
             if (_Person.Gender == 0)
+            {
                 pbPersonImage.Image = Resources.Male_512;
+             pbGendor.Image = Resources.Man_32;
+
+            }
             else
+            {
                 pbPersonImage.Image = Resources.Female_512;
+                pbGendor.Image = Resources.Woman_32;
+                
+            }
 
             string ImagePath = _Person.ImagePath;
             if (ImagePath != "")

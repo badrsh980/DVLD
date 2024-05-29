@@ -2,6 +2,7 @@
 using DVLD_Buisness;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using static DVLD_Buisness.clsTestType;
 
@@ -75,9 +76,37 @@ namespace DVLD.Test
 
                 dgvLicenseTestAppointments.Columns[3].HeaderText = "Is Locked";
                 dgvLicenseTestAppointments.Columns[3].Width = 100;
+
+                dgvLicenseTestAppointments.Columns[4].HeaderText = "Test Result";
+                dgvLicenseTestAppointments.Columns[4].Width = 150;
+                dgvLicenseTestAppointments.CellFormatting +=new DataGridViewCellFormattingEventHandler(dgvLicenseTestAppointments_CellFormatting);
             }
         }
 
+        private void dgvLicenseTestAppointments_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 4) 
+            {
+                if (e.Value != null)
+                {
+                    string cellValue = e.Value.ToString();
+
+                    // Change color based on the value
+                    if (cellValue == "Pass")
+                    {
+                        e.CellStyle.ForeColor = Color.Green; // Text color
+                    }
+                    else if (cellValue == "Fail")
+                    {
+                        e.CellStyle.ForeColor = Color.Red; // Text color
+                    }
+                    else if (cellValue == "NotTakenYet")
+                    {
+                        e.CellStyle.ForeColor = Color.Gray; // Text color
+                    }
+                }
+            }
+        }
 
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -125,19 +154,37 @@ namespace DVLD.Test
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bool IsLocked = (bool)dgvLicenseTestAppointments.CurrentRow.Cells[3].Value;
+            
+            if (IsLocked)
+            {
+                MessageBox.Show("This test is Locked", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
             int TestAppointmentID = (int)dgvLicenseTestAppointments.CurrentRow.Cells[0].Value;
             frmScheduleTest frm = new frmScheduleTest(_LocalDrivingLicenseApplicationID, _TestTypeID , TestAppointmentID);
             frm.ShowDialog();
+
+
             frmTestAppointments_Load(null, null);
         }
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bool IsLocked = (bool)dgvLicenseTestAppointments.CurrentRow.Cells[3].Value;
 
-            //int TestAppointmentID = (int)dgvLicenseTestAppointments.CurrentRow.Cells[0].Value;
-            //frm frm = new frmTakeTest(TestAppointmentID, _TestTypeID );
-            //frm.ShowDialog();
-            //frmListTestAppointments_Load(null, null);
+            if (IsLocked)
+            {
+                MessageBox.Show("This test is Locked", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            int TestAppointmentID = (int)dgvLicenseTestAppointments.CurrentRow.Cells[0].Value;
+            frmTakeTest frm = new frmTakeTest(TestAppointmentID, _TestTypeID);
+            frm.ShowDialog();
+            frmTestAppointments_Load(null, null);
 
         }
     }
