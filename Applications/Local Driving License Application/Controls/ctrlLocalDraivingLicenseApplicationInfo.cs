@@ -1,4 +1,5 @@
-﻿using DVLD.People;
+﻿using DVLD.License.Controls;
+using DVLD.People;
 using DVLD_Buisness;
 using System;
 using System.Windows.Forms;
@@ -83,6 +84,8 @@ namespace DVLD.Applications.Local_Driving_License.Controls
 
         private void llblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(clsLocalDrivingApplication.FindByLocalDrivingLicenseApplicationID(_LocalDrivingApplication.LocalDrivingLicenseApplicationID).GetActiveLicenseID());
+            frm.ShowDialog();
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

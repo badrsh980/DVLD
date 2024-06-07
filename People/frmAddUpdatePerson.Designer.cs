@@ -89,7 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbFilters
             // 
             this.groupBox1.Controls.Add(this.llRemoveImage);
             this.groupBox1.Controls.Add(this.pictureBox9);
@@ -131,7 +131,7 @@
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(19, 77);
-            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Name = "gbFilters";
             this.groupBox1.Size = new System.Drawing.Size(928, 378);
             this.groupBox1.TabIndex = 72;
             this.groupBox1.TabStop = false;

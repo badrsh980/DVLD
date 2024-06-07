@@ -22,5 +22,10 @@ namespace DVLD.Applications.Local_Driving_License
         {
 
         }
+
+        private void ctrlLocalDraivingLicenseApplicationInfo1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

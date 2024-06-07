@@ -39,7 +39,7 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbFilters
             // 
             this.groupBox1.Controls.Add(this.lblIsActive);
             this.groupBox1.Controls.Add(this.label2);
@@ -48,7 +48,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 305);
-            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Name = "gbFilters";
             this.groupBox1.Size = new System.Drawing.Size(819, 86);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;

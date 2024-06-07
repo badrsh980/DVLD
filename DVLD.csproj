@@ -46,16 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Applications\Local Driving License\Controls\ctrlLocalDraivingLicenseApplicationInfo.cs">
+    <Compile Include="Applications\Local Driving License Application\Controls\ctrlLocalDraivingLicenseApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\Controls\ctrlLocalDraivingLicenseApplicationInfo.Designer.cs">
+    <Compile Include="Applications\Local Driving License Application\Controls\ctrlLocalDraivingLicenseApplicationInfo.Designer.cs">
       <DependentUpon>ctrlLocalDraivingLicenseApplicationInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmAddUpdateLocalDrivingLicesnseApplication.cs">
+    <Compile Include="Applications\Local Driving License Application\frmAddUpdateLocalDrivingLicesnseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmAddUpdateLocalDrivingLicesnseApplication.Designer.cs">
+    <Compile Include="Applications\Local Driving License Application\frmAddUpdateLocalDrivingLicesnseApplication.Designer.cs">
       <DependentUpon>frmAddUpdateLocalDrivingLicesnseApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Application Types\frmEditApplicationType.cs">
@@ -70,23 +70,53 @@
     <Compile Include="Applications\Application Types\frmListApplicationTypes.Designer.cs">
       <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmLocalDraivingLicenseApplicationInfo.cs">
+    <Compile Include="Applications\Local Driving License Application\frmLocalDraivingLicenseApplicationInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmLocalDraivingLicenseApplicationInfo.Designer.cs">
+    <Compile Include="Applications\Local Driving License Application\frmLocalDraivingLicenseApplicationInfo.Designer.cs">
       <DependentUpon>frmLocalDraivingLicenseApplicationInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="License\Controls\ctrlLicenseInfo.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="License\Controls\ctrlLicenseInfo.Designer.cs">
-      <DependentUpon>ctrlLicenseInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="License\issueDriverLicenseForTheFirstTime.cs">
+    <Compile Include="Applications\Renew Licens Application\frmRenewLocalDrivingLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="License\issueDriverLicenseForTheFirstTime.Designer.cs">
-      <DependentUpon>issueDriverLicenseForTheFirstTime.cs</DependentUpon>
+    <Compile Include="Applications\Renew Licens Application\frmRenewLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>frmRenewLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\LocalLicense\Controls1\ctrlDriverLicenseInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="License\LocalLicense\Controls1\ctrlDriverLicenseInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrlDriverLicenseInfoWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Replace Lost Or Damaged License\frmReplaceLostOrDamagedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Replace Lost Or Damaged License\frmReplaceLostOrDamagedLicense.Designer.cs">
+      <DependentUpon>frmReplaceLostOrDamagedLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\LocalLicense\Controls1\ctrlDriverLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="License\LocalLicense\Controls1\ctrlDriverLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlDriverLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\LocalLicense\Controls1\ctrlLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="License\LocalLicense\Controls1\ctrlLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\LocalLicense\frmDriverLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="License\LocalLicense\frmDriverLicenseInfo.Designer.cs">
+      <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\LocalLicense\frmIssueDriverLicenseForTheFirstTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="License\LocalLicense\frmIssueDriverLicenseForTheFirstTime.Designer.cs">
+      <DependentUpon>frmIssueDriverLicenseForTheFirstTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Test\ctrl\ctrlScheduledTest.cs">
       <SubType>UserControl</SubType>
@@ -195,10 +225,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Applications\Local Driving License\frmListLocalDrivingLicesnseApplications.cs">
+    <Compile Include="Applications\Local Driving License Application\frmListLocalDrivingLicesnseApplications.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmListLocalDrivingLicesnseApplications.Designer.cs">
+    <Compile Include="Applications\Local Driving License Application\frmListLocalDrivingLicesnseApplications.Designer.cs">
       <DependentUpon>frmListLocalDrivingLicesnseApplications.cs</DependentUpon>
     </Compile>
     <Compile Include="User\frmAddUpdateUser.cs">
@@ -225,10 +255,10 @@
     <Compile Include="User\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Applications\Local Driving License\Controls\ctrlLocalDraivingLicenseApplicationInfo.resx">
+    <EmbeddedResource Include="Applications\Local Driving License Application\Controls\ctrlLocalDraivingLicenseApplicationInfo.resx">
       <DependentUpon>ctrlLocalDraivingLicenseApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\frmAddUpdateLocalDrivingLicesnseApplication.resx">
+    <EmbeddedResource Include="Applications\Local Driving License Application\frmAddUpdateLocalDrivingLicesnseApplication.resx">
       <DependentUpon>frmAddUpdateLocalDrivingLicesnseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Application Types\frmEditApplicationType.resx">
@@ -237,14 +267,29 @@
     <EmbeddedResource Include="Applications\Application Types\frmListApplicationTypes.resx">
       <DependentUpon>frmListApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\frmLocalDraivingLicenseApplicationInfo.resx">
+    <EmbeddedResource Include="Applications\Local Driving License Application\frmLocalDraivingLicenseApplicationInfo.resx">
       <DependentUpon>frmLocalDraivingLicenseApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="License\Controls\ctrlLicenseInfo.resx">
+    <EmbeddedResource Include="Applications\Renew Licens Application\frmRenewLocalDrivingLicenseApplication.resx">
+      <DependentUpon>frmRenewLocalDrivingLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="License\LocalLicense\Controls1\ctrlDriverLicenseInfoWithFilter.resx">
+      <DependentUpon>ctrlDriverLicenseInfoWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Replace Lost Or Damaged License\frmReplaceLostOrDamagedLicense.resx">
+      <DependentUpon>frmReplaceLostOrDamagedLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="License\LocalLicense\Controls1\ctrlDriverLicenseInfo.resx">
+      <DependentUpon>ctrlDriverLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="License\LocalLicense\Controls1\ctrlLicenseInfo.resx">
       <DependentUpon>ctrlLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="License\issueDriverLicenseForTheFirstTime.resx">
-      <DependentUpon>issueDriverLicenseForTheFirstTime.cs</DependentUpon>
+    <EmbeddedResource Include="License\LocalLicense\frmDriverLicenseInfo.resx">
+      <DependentUpon>frmDriverLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="License\LocalLicense\frmIssueDriverLicenseForTheFirstTime.resx">
+      <DependentUpon>frmIssueDriverLicenseForTheFirstTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\ctrl\ctrlScheduledTest.resx">
       <DependentUpon>ctrlScheduledTest.cs</DependentUpon>
@@ -299,7 +344,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\frmListLocalDrivingLicesnseApplications.resx">
+    <EmbeddedResource Include="Applications\Local Driving License Application\frmListLocalDrivingLicesnseApplications.resx">
       <DependentUpon>frmListLocalDrivingLicesnseApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\frmAddUpdateUser.resx">

@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Applications.Local_Driving_License
 {
-    partial class issueDriverLicenseForTheFirstTime
+    partial class frmIssueDriverLicenseForTheFirstTime
     {
         /// <summary>
         /// Required designer variable.
@@ -63,7 +63,7 @@
             this.txtBox.Multiline = true;
             this.txtBox.Name = "txtBox";
             this.txtBox.Size = new System.Drawing.Size(567, 104);
-            this.txtBox.TabIndex = 141;
+            this.txtBox.TabIndex = 0;
             // 
             // btnClose
             // 
@@ -71,11 +71,11 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(446, 502);
+            this.btnClose.Location = new System.Drawing.Point(428, 502);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(126, 37);
-            this.btnClose.TabIndex = 143;
+            this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -85,11 +85,11 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Image = global::DVLD.Properties.Resources.LocalDriving_License;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(580, 502);
+            this.btnSave.Location = new System.Drawing.Point(562, 502);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 37);
-            this.btnSave.TabIndex = 142;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Issue";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -101,8 +101,9 @@
             this.ctrlLocalDraivingLicenseApplicationInfo1.Name = "ctrlLocalDraivingLicenseApplicationInfo1";
             this.ctrlLocalDraivingLicenseApplicationInfo1.Size = new System.Drawing.Size(703, 371);
             this.ctrlLocalDraivingLicenseApplicationInfo1.TabIndex = 0;
+            this.ctrlLocalDraivingLicenseApplicationInfo1.Load += new System.EventHandler(this.ctrlLocalDraivingLicenseApplicationInfo1_Load);
             // 
-            // issueDriverLicenseForTheFirstTime
+            // frmIssueDriverLicenseForTheFirstTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,9 +115,10 @@
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.ctrlLocalDraivingLicenseApplicationInfo1);
-            this.Name = "issueDriverLicenseForTheFirstTime";
+            this.Name = "frmIssueDriverLicenseForTheFirstTime";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "issueDriverLicenseForTheFirstTime";
+            this.Load += new System.EventHandler(this.issueDriverLicenseForTheFirstTime_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

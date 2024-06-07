@@ -43,7 +43,6 @@ namespace DVLD.User
                         }
                     }
                 }
-
                 dgvUsers.DataSource = _dtAllUsers;
                 cbFilterBy.SelectedIndex = 0;
                 lblRecordsCount.Text = dgvUsers.Rows.Count.ToString();
@@ -63,11 +62,6 @@ namespace DVLD.User
                 dgvUsers.Columns[4].HeaderText = "Is Active";
                 dgvUsers.Columns[4].Width = 120;
             }
-
-
-         
-
-
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,7 +76,6 @@ namespace DVLD.User
             } 
             
             else
-
             {
                 
                 txtFilterValue.Visible = (cbFilterBy.Text !="None") ;
@@ -109,7 +102,7 @@ namespace DVLD.User
             switch (cbFilterBy.Text)
             {
                 case "User ID":
-                    FilterColumn = "CreatedByUserID";
+                    FilterColumn = "UserID";
                     break;
                 case "UserName":
                     FilterColumn = "UserName";
@@ -149,9 +142,7 @@ namespace DVLD.User
         }
 
         private void cbIsActive_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-             
+        {  
           string FilterColumn = "IsActive";
           string FilterValue =cbIsActive.Text;
 
@@ -166,17 +157,12 @@ namespace DVLD.User
                     FilterValue = "0"; 
                     break;
             }
-
-
             if (FilterValue == "All")
                 _dtAllUsers.DefaultView.RowFilter = "";  
             else
                 //in this case we deal with numbers not string.
                 _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, FilterValue);
-
             lblRecordsCount.Text = _dtAllUsers.Rows.Count.ToString();
-
-
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -200,21 +186,22 @@ namespace DVLD.User
             frmAddUpdateUser Frm1 = new frmAddUpdateUser();
             Frm1.ShowDialog();
             frmListUsers_Load(null, null);
-
         }
 
         private void dgvUsers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             frmUserInfo Frm1 = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
             Frm1.ShowDialog();
-           
+            frmListUsers_Load(null, null);
+
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUserInfo Frm1 = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
             Frm1.ShowDialog();
-           
+            frmListUsers_Load(null, null);
+
         }
 
         private void ChangePasswordtoolStripMenuItem_Click(object sender, EventArgs e)
@@ -223,6 +210,7 @@ namespace DVLD.User
             int UserID = (int)dgvUsers.CurrentRow.Cells[0].Value;
             frmChangePassword Frm1 = new frmChangePassword(UserID);
             Frm1.ShowDialog();
+            frmListUsers_Load(null, null);
 
         }
 
@@ -242,14 +230,8 @@ namespace DVLD.User
                 MessageBox.Show("User has been deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmListUsers_Load(null, null);
             }
-
             else
                 MessageBox.Show("User is not delted due to data connected to it.", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-            
-
-
         }
     }
 }

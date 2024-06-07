@@ -15,11 +15,11 @@ namespace DVLD.Applications.Local_Driving_License
 {
 
     
-    public partial class issueDriverLicenseForTheFirstTime : Form
+    public partial class frmIssueDriverLicenseForTheFirstTime : Form
     {
         private int DrivingLicenseApplicationID=-1;
         clsLocalDrivingApplication _LocalDrivingLicenseApplication;
-        public issueDriverLicenseForTheFirstTime(int DrivingLicenseApplicationID)
+        public frmIssueDriverLicenseForTheFirstTime(int DrivingLicenseApplicationID)
         {
             InitializeComponent();
 
@@ -29,7 +29,6 @@ namespace DVLD.Applications.Local_Driving_License
 
             if (_LocalDrivingLicenseApplication == null)
             {
-
                 MessageBox.Show("No Applicaiton with ID=" + DrivingLicenseApplicationID.ToString(), "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
@@ -77,6 +76,15 @@ namespace DVLD.Applications.Local_Driving_License
                 MessageBox.Show("License Was not Issued ! ",
                  "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void issueDriverLicenseForTheFirstTime_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void ctrlLocalDraivingLicenseApplicationInfo1_Load(object sender, EventArgs e)
+        {
 
         }
     }

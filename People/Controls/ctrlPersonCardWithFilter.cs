@@ -128,7 +128,6 @@ namespace DVLD.Controls
 
         private void txtFilterValue_Validating(object sender, CancelEventArgs e)
         {
-
             if (string.IsNullOrEmpty(txtFilterValue.Text.Trim()))
             {
                 e.Cancel = true;
@@ -146,13 +145,11 @@ namespace DVLD.Controls
             frmAddUpdatePerson frm1 = new frmAddUpdatePerson();
             frm1.DataBack += DataBackEvent; // Subscribe to the event
             frm1.ShowDialog();
-
         }
 
         private void DataBackEvent(object sender, int PersonID)
         {
             // Handle the data received
-
             cbFilterBy.SelectedIndex = 1;
             txtFilterValue.Text = PersonID.ToString();
             ctrlPersonCard1.LoadPersonInfo(PersonID);
@@ -165,10 +162,6 @@ namespace DVLD.Controls
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-            
-
-
             // Check if the pressed key is Enter (character code 13)
             if (e.KeyChar == (char)13)
             {
@@ -190,6 +183,11 @@ namespace DVLD.Controls
             {
                 errorProvider1.SetError(txtFilterValue, null);
             };
+        }
+
+        private void gbFilters_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

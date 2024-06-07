@@ -145,14 +145,14 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // groupBox1
+            // gbFilters
             // 
             this.groupBox1.Controls.Add(this.rbFail);
             this.groupBox1.Controls.Add(this.rbPass);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(123, 517);
-            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Name = "gbFilters";
             this.groupBox1.Size = new System.Drawing.Size(128, 37);
             this.groupBox1.TabIndex = 177;
             this.groupBox1.TabStop = false;

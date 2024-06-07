@@ -1,5 +1,6 @@
 ﻿using DVLD.Applications;
 using DVLD.Applications.Local_Driving_License;
+using DVLD.License.Controls;
 using DVLD.Test;
 using DVLD_Buisness;
 using System;
@@ -189,14 +190,28 @@ namespace DVLD.Tests
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            issueDriverLicenseForTheFirstTime frm = new issueDriverLicenseForTheFirstTime((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
+            frmIssueDriverLicenseForTheFirstTime frm = new frmIssueDriverLicenseForTheFirstTime((int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value);
 
             frm.ShowDialog();
         }
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplications.CurrentRow.Cells[0].Value;
 
+            int LicenseID = clsLocalDrivingApplication.FindByLocalDrivingLicenseApplicationID(LocalDrivingLicenseApplicationID).GetActiveLicenseID();
+
+            if (LicenseID != -1)
+            {
+                frmDriverLicenseInfo frm = new frmDriverLicenseInfo(LicenseID);
+                frm.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("No License Found!", "No License", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -261,7 +276,7 @@ namespace DVLD.Tests
             //Enabled only if person passed all tests and Does not have license. 
             issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExists;
 
-            showLicenseToolStripMenuItem.Enabled = LicenseExists;
+            showLicenseToolStripMenuItem.Enabled = LicenseExists && (TotalPassedTests == 3) && (LocalDrivingLicenseApplication.ApplicationStatus== clsApplication.enStatus.Completed);
 
             editToolStripMenuItem.Enabled = !LicenseExists && (LocalDrivingLicenseApplication.ApplicationStatus == clsApplication.enStatus.New);
             ScheduleTestsMenue.Enabled = !LicenseExists;

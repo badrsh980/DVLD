@@ -1,7 +1,8 @@
 ﻿using DVLD.Applications;
+using DVLD.Applications.Replace_Lost_Or_Damaged_License;
 using DVLD.Applications.TestTypes;
 using DVLD.Classes;
-
+using DVLD.Licenses;
 using DVLD.Login;
 using DVLD.People;
 using DVLD.Tests;
@@ -93,8 +94,8 @@ namespace DVLD
 
         private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-    
-
+            frmRenewLocalDrivingLicenseApplication frm = new frmRenewLocalDrivingLicenseApplication();
+            frm.ShowDialog();
         }
 
        
@@ -139,7 +140,9 @@ namespace DVLD
 
         private void ReplacementLostOrDamagedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmReplaceLostOrDamagedLicense frm = new frmReplaceLostOrDamagedLicense();
 
+            frm.ShowDialog();
 
         }
 
